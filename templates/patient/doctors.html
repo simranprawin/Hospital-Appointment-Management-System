@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}Find Doctors | MediCare+{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-container">
+
+```
+<div class="dashboard-header">
+
+    <span class="badge">Patient Portal</span>
+
+    <h1>Find a Doctor</h1>
+
+    <p>
+        Browse our available doctors and choose the right specialist
+        for your healthcare needs.
+    </p>
+
+</div>
+
+
+<!-- Search and Filter -->
+
+<div class="dashboard-card">
+
+    <form method="GET" action="{{ url_for('doctors') }}">
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="search">
+                    Search Doctor
+                </label>
+
+                <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    value="{{ search }}"
+                    placeholder="Search by doctor name or specialization"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="specialization">
+                    Specialization
+                </label>
+
+                <select
+                    id="specialization"
+                    name="specialization"
+                >
+
+                    <option value="">
+                        All Specializations
+                    </option>
+
+                    {% for specialization_item in specializations %}
+
+                        <option
+                            value="{{ specialization_item['specialization'] }}"
+                            {% if selected_specialization == specialization_item['specialization'] %}
+                                selected
+                            {% endif %}
+                        >
+                            {{ specialization_item['specialization'] }}
+                        </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <button
+            type="submit"
+            class="btn primary"
+        >
+            Search Doctors
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- Doctors -->
+
+<div class="section-heading">
+
+    <span class="badge">Our Specialists</span>
+
+    <h2>Available Doctors</h2>
+
+    <p>
+        Choose a doctor to continue with your appointment.
+    </p>
+
+</div>
+
+
+{% if doctors %}
+
+    <div class="feature-grid">
+
+        {% for doctor in doctors %}
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    👨‍⚕️
+                </div>
+
+                <h3>
+                    {{ doctor['name'] }}
+                </h3>
+
+                <p>
+                    <strong>
+                        {{ doctor['specialization'] }}
+                    </strong>
+                </p>
+
+                <p>
+                    <strong>Qualification:</strong>
+                    {{ doctor['qualification'] }}
+                </p>
+
+                <p>
+                    <strong>Experience:</strong>
+                    {{ doctor['experience'] }} years
+                </p>
+
+                <p>
+                    <strong>Available:</strong>
+                    {{ doctor['available_days'] }}
+                </p>
+
+                <p>
+                    <strong>Time:</strong>
+                    {{ doctor['available_time'] }}
+                </p>
+
+                <p>
+                    <strong>Consultation Fee:</strong>
+                    ₹{{ doctor['consultation_fee'] }}
+                </p>
+
+                <br>
+
+                <a
+                    href="{{ url_for('book_appointment', doctor_id=doctor['id']) }}"
+                    class="btn primary"
+                >
+                    Book Appointment
+                </a>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% else %}
+
+    <div class="dashboard-card">
+
+        <div class="feature-icon">
+            🔍
+        </div>
+
+        <h3>No Doctors Found</h3>
+
+        <p>
+            No doctors match your current search or specialization.
+            Try changing your search criteria.
+        </p>
+
+    </div>
+
+{% endif %}
+```
+
+</section>
+
+{% endblock %}

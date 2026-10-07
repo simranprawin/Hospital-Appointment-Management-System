@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Patient Dashboard | MediCare+{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-container">
+
+```
+<div class="dashboard-header">
+
+    <span class="badge">Patient Portal</span>
+
+    <h1>Welcome to MediCare+</h1>
+
+    <p>
+        Manage your healthcare appointments and visits from one place.
+    </p>
+
+</div>
+
+
+<div class="dashboard-grid">
+
+    <!-- Find Doctors -->
+
+    <div class="dashboard-card">
+
+        <div class="feature-icon">👨‍⚕️</div>
+
+        <h3>Find Doctors</h3>
+
+        <p>
+            Browse available doctors and explore their
+            specializations, experience, and availability.
+        </p>
+
+        <a
+            href="{{ url_for('doctors') }}"
+            class="btn primary"
+        >
+            Find Doctors
+        </a>
+
+    </div>
+
+
+    <!-- Book Appointment -->
+
+    <div class="dashboard-card">
+
+        <div class="feature-icon">📅</div>
+
+        <h3>Book Appointment</h3>
+
+        <p>
+            Choose a doctor and schedule a suitable
+            date and time for your appointment.
+        </p>
+
+        <a
+            href="{{ url_for('doctors') }}"
+            class="btn primary"
+        >
+            Book Appointment
+        </a>
+
+    </div>
+
+
+    <!-- My Appointments -->
+
+    <div class="dashboard-card">
+
+        <div class="feature-icon">📋</div>
+
+        <h3>My Appointments</h3>
+
+        <p>
+            View your upcoming appointments and
+            manage your scheduled hospital visits.
+        </p>
+
+        <a
+            href="{{ url_for('patient_appointments') }}"
+            class="btn primary"
+        >
+            My Appointments
+        </a>
+
+    </div>
+
+
+    <!-- Appointment History -->
+
+    <div class="dashboard-card">
+
+        <div class="feature-icon">🕒</div>
+
+        <h3>Appointment History</h3>
+
+        <p>
+            View your previous appointments and
+            keep track of your healthcare visits.
+        </p>
+
+        <a
+            href="{{ url_for('patient_history') }}"
+            class="btn primary"
+        >
+            View History
+        </a>
+
+    </div>
+
+
+    <!-- My Profile -->
+
+    <div class="dashboard-card">
+
+        <div class="feature-icon">👤</div>
+
+        <h3>My Profile</h3>
+
+        <p>
+            Your patient account is securely connected
+            to the MediCare+ healthcare system.
+        </p>
+
+        <span class="status confirmed">
+            Account Active
+        </span>
+
+    </div>
+
+
+    <!-- Healthcare Support -->
+
+    <div class="dashboard-card">
+
+        <div class="feature-icon">🏥</div>
+
+        <h3>Healthcare Support</h3>
+
+        <p>
+            MediCare+ connects patients, doctors,
+            and administrators through one platform.
+        </p>
+
+        <span class="status confirmed">
+            MediCare+
+        </span>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}Home | MediCare+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+```
+<div class="hero-content">
+
+    <span class="badge">Healthcare • Simplified</span>
+
+    <h1>
+        Hospital Appointment
+        <span>Management System</span>
+    </h1>
+
+    <p>
+        A simple and secure platform to find doctors,
+        book appointments, and manage healthcare visits.
+    </p>
+
+    <div class="hero-buttons">
+        <a href="{{ url_for('login') }}" class="btn primary">
+            Login
+        </a>
+
+        <a href="{{ url_for('register') }}" class="btn secondary">
+            Create Account
+        </a>
+    </div>
+
+</div>
+
+
+<div class="hero-card">
+
+    <div class="medical-icon">⚕</div>
+
+    <h2>Better Healthcare</h2>
+
+    <p>
+        Connecting patients, doctors, and administrators
+        through one easy-to-use system.
+    </p>
+
+    <div class="stats">
+
+        <div class="stat">
+            <strong>24/7</strong>
+            <span>Access</span>
+        </div>
+
+        <div class="stat">
+            <strong>5+</strong>
+            <span>Specialists</span>
+        </div>
+
+        <div class="stat">
+            <strong>Easy</strong>
+            <span>Booking</span>
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<section class="features">
+
+```
+<div class="section-heading">
+
+    <span class="badge">Our Services</span>
+
+    <h2>Everything You Need</h2>
+
+    <p>
+        Manage your healthcare appointments with ease.
+    </p>
+
+</div>
+
+
+<div class="feature-grid">
+
+    <div class="feature-card">
+
+        <div class="feature-icon">👩‍⚕️</div>
+
+        <h3>Find Doctors</h3>
+
+        <p>
+            Search doctors based on specialization,
+            experience, and availability.
+        </p>
+
+    </div>
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">📅</div>
+
+        <h3>Book Appointments</h3>
+
+        <p>
+            Select your preferred doctor, date,
+            and time for an appointment.
+        </p>
+
+    </div>
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">📋</div>
+
+        <h3>Manage Visits</h3>
+
+        <p>
+            View upcoming appointments, cancel visits,
+            and check your appointment history.
+        </p>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}Book Appointment | MediCare+{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+
+    <div class="auth-card">
+
+        <div class="auth-header">
+
+            <span class="badge">Appointment Booking</span>
+
+            <h1>Book Appointment</h1>
+
+            <p>
+                Schedule your appointment with your selected doctor.
+            </p>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <div class="feature-icon">👨‍⚕️</div>
+
+            <h3>{{ doctor['name'] }}</h3>
+
+            <p>
+                <strong>Specialization:</strong>
+                {{ doctor['specialization'] }}
+            </p>
+
+            <p>
+                <strong>Qualification:</strong>
+                {{ doctor['qualification'] }}
+            </p>
+
+            <p>
+                <strong>Experience:</strong>
+                {{ doctor['experience'] }} years
+            </p>
+
+            <p>
+                <strong>Available:</strong>
+                {{ doctor['available_days'] }}
+            </p>
+
+            <p>
+                <strong>Time:</strong>
+                {{ doctor['available_time'] }}
+            </p>
+
+            <p>
+                <strong>Consultation Fee:</strong>
+                ₹{{ doctor['consultation_fee'] }}
+            </p>
+
+        </div>
+
+        <form
+            method="POST"
+            action="{{ url_for('book_appointment', doctor_id=doctor['id']) }}"
+        >
+
+            <div class="form-group">
+
+                <label for="appointment_date">
+                    Appointment Date
+                </label>
+
+                <input
+                    type="date"
+                    id="appointment_date"
+                    name="appointment_date"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="appointment_time">
+                    Appointment Time
+                </label>
+
+                <input
+                    type="time"
+                    id="appointment_time"
+                    name="appointment_time"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="reason">
+                    Reason for Visit
+                </label>
+
+                <textarea
+                    id="reason"
+                    name="reason"
+                    rows="4"
+                    placeholder="Enter reason for your visit"
+                    required
+                ></textarea>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn primary auth-btn"
+            >
+                Confirm Appointment
+            </button>
+
+        </form>
+
+        <div class="auth-footer">
+
+            <a href="{{ url_for('doctors') }}">
+                ← Back to Doctors
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
